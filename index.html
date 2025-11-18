@@ -17,6 +17,51 @@
             overflow-x: hidden;
         }
 
+        /* Loading overlay – Oscar eye as the gateway */
+        .loader-overlay {
+            position: fixed;
+            inset: 0;
+            background: #020304;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .loader-overlay.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-eye {
+            max-width: 160px;
+            animation: eyeGate 3s ease-in-out infinite;
+        }
+
+        @keyframes eyeGate {
+            0% {
+                transform: scale(0.9);
+                opacity: 0.6;
+                filter: drop-shadow(0 0 0px #4DB6AC);
+            }
+            40% {
+                transform: scale(1.02);
+                opacity: 1;
+                filter: drop-shadow(0 0 20px #4DB6AC);
+            }
+            70% {
+                transform: scale(0.96);
+                opacity: 0.9;
+                filter: drop-shadow(0 0 8px #4DB6AC);
+            }
+            100% {
+                transform: scale(0.9);
+                opacity: 0.6;
+                filter: drop-shadow(0 0 0px #4DB6AC);
+            }
+        }
+
         /* Faint full-page background logo */
         .background-logo {
             position: fixed;
@@ -24,14 +69,14 @@
             left: 50%;
             width: 80vw;
             max-width: 800px;
-            opacity: 0.18; /* increased visibility */
+            opacity: 0.18;
             transform: translate(-50%, -50%);
             z-index: -1;
         }
 
         /* Oscar main logo */
         .main-logo {
-            max-width: 130px;  /* 30% smaller version */
+            max-width: 130px;
             margin-bottom: 20px;
         }
 
@@ -70,7 +115,6 @@
             animation: pulse 4s ease-in-out infinite;
         }
 
-        /* Soft pulse animation */
         @keyframes pulse {
             0% { opacity: 0.70; }
             50% { opacity: 0.95; }
@@ -81,11 +125,22 @@
 
 <body>
 
+    <!-- Loading gateway: Oscar eye -->
+    <div class="loader-overlay" id="loader">
+        <img src="6EEF8F0D-6F25-421B-8106-18AE2CFB42E8.png"
+             alt="Oscar Loading Gateway"
+             class="loader-eye">
+    </div>
+
     <!-- Faint background OLOS AI watermark -->
-    <img src="2DEF3F03-F001-4B3E-B41B-BB00507AA925.png" class="background-logo" alt="OLOS AI Background">
+    <img src="2DEF3F03-F001-4B3E-B41B-BB00507AA925.png"
+         class="background-logo"
+         alt="OLOS AI Background">
 
     <!-- Oscar Eye main logo -->
-    <img src="6EEF8F0D-6F25-421B-8106-18AE2CFB42E8.png" alt="Oscar Logo" class="main-logo">
+    <img src="6EEF8F0D-6F25-421B-8106-18AE2CFB42E8.png"
+         alt="Oscar Logo"
+         class="main-logo">
 
     <h1>OSCAR</h1>
 
@@ -112,8 +167,18 @@
         <p class="footer-quote">
             OSCAR remembers so you don’t have to.
         </p>
-
     </div>
+
+    <script>
+        // Fade out the loading gateway once the page has loaded
+        window.addEventListener('load', function () {
+            var loader = document.getElementById('loader');
+            // Slight delay so the animation can be seen
+            setTimeout(function () {
+                loader.classList.add('hide');
+            }, 1200);
+        });
+    </script>
 
 </body>
 </html>
