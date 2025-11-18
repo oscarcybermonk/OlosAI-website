@@ -32,7 +32,7 @@
             z-index: 9999;
             overflow: hidden;
             opacity: 1;
-            transition: opacity 3s ease; /* <-- 3 second fade out */
+            transition: opacity 3s ease; /* 3 second fade out */
         }
 
         .loader-overlay.hide {
@@ -40,7 +40,7 @@
             pointer-events: none;
         }
 
-        /* Eye frame (big zoomed eye) */
+        /* Big static eye frame */
         .loader-eye-frame {
             position: relative;
             width: min(80vw, 600px);
@@ -52,17 +52,9 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center 25%;
-            animation: eyeGlow 4s ease-in-out infinite; /* glows during opening */
-            opacity: 1;
-            transition: opacity 3s ease; /* fades with overlay */
-        }
-
-        @keyframes eyeGlow {
-            0%   { transform: scale(0.95); opacity: 0.7; filter: drop-shadow(0 0 5px #4DB6AC); }
-            40%  { transform: scale(1.10); opacity: 1;   filter: drop-shadow(0 0 40px #4DB6AC); }
-            70%  { transform: scale(1.03); opacity: 0.9; filter: drop-shadow(0 0 18px #4DB6AC); }
-            100% { transform: scale(0.95); opacity: 0.7; filter: drop-shadow(0 0 5px #4DB6AC); }
+            object-position: center 25%; /* focus on triangle + eye */
+            /* Static glow, no movement */
+            filter: drop-shadow(0 0 35px #4DB6AC);
         }
 
         /* Eyelids */
@@ -172,7 +164,6 @@
 
             <img src="6EEF8F0D-6F25-421B-8106-18AE2CFB42E8.png"
                  class="loader-eye"
-                 id="gatewayEye"
                  alt="Oscar Gateway">
 
             <div class="lid-bottom"></div>
@@ -197,7 +188,13 @@
 
     <div class="content">
         <p><strong>Oscar is coming.</strong></p>
-        <p>A private, modular AI assistant designed to run on your own hardware...</p>
+        <p>A private, modular AI assistant designed to run on your own hardware. Oscar starts simple — with email, shopping lists, and to-dos — and grows one module at a time into a personal life operating system.</p>
+
+        <p><strong>Local-first, cloud-optional.</strong><br>
+        Oscar works entirely on your system for complete privacy and control. If you prefer cloud integrations, you can choose them. The power stays in your hands.</p>
+
+        <p><strong>One module at a time.</strong><br>
+        You add the features you want, when you want them — from Baby Oscar (free core tools) to advanced health, wealth, automation, and business modules.</p>
 
         <p><strong>Follow the journey:</strong><br>
             <a href="https://www.facebook.com/profile.php?id=61580439063803" target="_blank">
@@ -205,23 +202,18 @@
             </a>
         </p>
 
-        <p class="footer-quote">OSCAR remembers so you don’t have to.</p>
+        <p class="footer-quote">
+            OSCAR remembers so you don’t have to.
+        </p>
     </div>
-
 
     <!-- TIMING CONTROL -->
     <script>
         window.addEventListener('load', function () {
-
-            // Fade out gateway after:
-            // 4 sec opening + 1 sec pause = 5 sec
-            // then 3 sec fade → total 8 sec visual experience
-
+            // 4s for lids fully open, then start 3s fade
             setTimeout(function () {
                 document.getElementById('loader').classList.add('hide');
-                document.getElementById('gatewayEye').style.opacity = 0;
-            }, 5000); // start fade at 5 seconds
-
+            }, 4000);
         });
     </script>
 
