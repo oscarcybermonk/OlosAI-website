@@ -39,29 +39,38 @@
             visibility: hidden;
         }
 
-        /* FORCE BIG EYE SIZE */
-        .loader-eye {
-            width: 480px;      /* <-- FORCE GIANT SIZE */
-            height: auto;
+        /* Frame that zooms into the eye/triangle only */
+        .loader-eye-frame {
             position: relative;
-            z-index: 10;
+            width: min(80vw, 600px);   /* huge but responsive */
+            height: min(80vw, 600px);  /* square */
+            overflow: hidden;
+        }
+
+        .loader-eye {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* push focus slightly upward so we see more triangle/eye, less text */
+            object-position: center 25%;
             animation: eyeGlow 7s ease-in-out infinite;
         }
 
         @keyframes eyeGlow {
-            0% { transform: scale(0.88); opacity: 0.6; filter: drop-shadow(0 0 5px #4DB6AC); }
-            40% { transform: scale(1.15); opacity: 1; filter: drop-shadow(0 0 45px #4DB6AC); }
-            70% { transform: scale(1.05); opacity: 0.9; filter: drop-shadow(0 0 20px #4DB6AC); }
-            100% { transform: scale(0.88); opacity: 0.6; filter: drop-shadow(0 0 5px #4DB6AC); }
+            0%   { transform: scale(0.95); opacity: 0.6; filter: drop-shadow(0 0 5px #4DB6AC); }
+            40%  { transform: scale(1.10); opacity: 1;   filter: drop-shadow(0 0 45px #4DB6AC); }
+            70%  { transform: scale(1.03); opacity: 0.9; filter: drop-shadow(0 0 22px #4DB6AC); }
+            100% { transform: scale(0.95); opacity: 0.6; filter: drop-shadow(0 0 5px #4DB6AC); }
         }
 
+        /* Eyelids covering the frame and opening */
         .lid-top,
         .lid-bottom {
             position: absolute;
             width: 100%;
             height: 50%;
             left: 0;
-            background: #020304;
+            background: #02070A;  /* slightly different tone so movement is visible */
             z-index: 20;
             animation-timing-function: ease-in-out;
         }
@@ -77,15 +86,15 @@
         }
 
         @keyframes openTopLid {
-            0% { transform: translateY(0%); }
-            55% { transform: translateY(-5%); }
-            100% { transform: translateY(-100%); }
+            0%   { transform: translateY(0%); }      /* closed over top half */
+            55%  { transform: translateY(-5%); }     /* small overshoot */
+            100% { transform: translateY(-100%); }   /* completely off-screen above */
         }
 
         @keyframes openBottomLid {
-            0% { transform: translateY(0%); }
-            55% { transform: translateY(5%); }
-            100% { transform: translateY(100%); }
+            0%   { transform: translateY(0%); }      /* closed over bottom half */
+            55%  { transform: translateY(5%); }      /* small overshoot */
+            100% { transform: translateY(100%); }    /* completely off-screen below */
         }
 
         /* --------------------------------------- */
@@ -143,8 +152,8 @@
         }
 
         @keyframes pulse {
-            0% { opacity: 0.70; }
-            50% { opacity: 0.95; }
+            0%   { opacity: 0.70; }
+            50%  { opacity: 0.95; }
             100% { opacity: 0.70; }
         }
     </style>
@@ -152,21 +161,27 @@
 
 <body>
 
+    <!-- Eye-opening gateway overlay -->
     <div class="loader-overlay" id="loader">
-        <div class="lid-top"></div>
+        <div class="loader-eye-frame">
+            <div class="lid-top"></div>
 
-        <img src="6EEF8F0D-6F25-421B-8106-18AE2CFB42E8.png"
-             class="loader-eye"
-             alt="Oscar Gateway">
+            <img src="6EEF8F0D-6F25-421B-8106-18AE2CFB42E8.png"
+                 class="loader-eye"
+                 alt="Oscar Gateway">
 
-        <div class="lid-bottom"></div>
+            <div class="lid-bottom"></div>
+        </div>
     </div>
 
+    <!-- Background logo + content -->
     <img src="2DEF3F03-F001-4B3E-B41B-BB00507AA925.png"
-         class="background-logo">
+         class="background-logo"
+         alt="OLOS AI Background">
 
     <img src="6EEF8F0D-6F25-421B-8106-18AE2CFB42E8.png"
-         class="main-logo">
+         class="main-logo"
+         alt="Oscar Logo">
 
     <h1>OSCAR</h1>
 
@@ -196,10 +211,11 @@
     </div>
 
     <script>
+        // Fade out the gateway overlay after 7 seconds
         window.addEventListener('load', function () {
             setTimeout(function () {
                 document.getElementById('loader').classList.add('hide');
-            }, 7000); // <-- 7-second reveal timing
+            }, 7000); // 7-second reveal
         });
     </script>
 
