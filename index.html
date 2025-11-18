@@ -18,9 +18,9 @@
             overflow-x: hidden;
         }
 
-        /* ------------------------------- */
-        /*  LOADING GATEWAY — EYE OPENS    */
-        /* ------------------------------- */
+        /* --------------------------------------- */
+        /*       LOADING GATEWAY — EYE OPENS       */
+        /* --------------------------------------- */
 
         .loader-overlay {
             position: fixed;
@@ -39,20 +39,20 @@
             visibility: hidden;
         }
 
-        /* Bigger eye (gateway) */
+        /* 150% BIGGER EYE */
         .loader-eye {
-            max-width: 240px;  /* increased size */
+            max-width: 360px; /* increased from 240px */
             position: relative;
             z-index: 10;
-            animation: eyeGlow 5s ease-in-out infinite;
+            animation: eyeGlow 7s ease-in-out infinite;
         }
 
         /* Eye glow animation */
         @keyframes eyeGlow {
-            0% { transform: scale(0.9); opacity: 0.6; filter: drop-shadow(0 0 4px #4DB6AC); }
-            40% { transform: scale(1.10); opacity: 1; filter: drop-shadow(0 0 35px #4DB6AC); }
-            70% { transform: scale(1.02); opacity: 0.9; filter: drop-shadow(0 0 18px #4DB6AC); }
-            100% { transform: scale(0.9); opacity: 0.6; filter: drop-shadow(0 0 4px #4DB6AC); }
+            0% { transform: scale(0.88); opacity: 0.6; filter: drop-shadow(0 0 5px #4DB6AC); }
+            40% { transform: scale(1.15); opacity: 1; filter: drop-shadow(0 0 45px #4DB6AC); }
+            70% { transform: scale(1.05); opacity: 0.9; filter: drop-shadow(0 0 20px #4DB6AC); }
+            100% { transform: scale(0.88); opacity: 0.6; filter: drop-shadow(0 0 5px #4DB6AC); }
         }
 
         /* Eyelids for opening effect */
@@ -69,29 +69,29 @@
 
         .lid-top {
             top: 0;
-            animation: openTopLid 5s forwards;
+            animation: openTopLid 7s forwards;
         }
 
         .lid-bottom {
             bottom: 0;
-            animation: openBottomLid 5s forwards;
+            animation: openBottomLid 7s forwards;
         }
 
         @keyframes openTopLid {
             0% { transform: translateY(0%); }
-            60% { transform: translateY(-5%); }
+            55% { transform: translateY(-5%); }
             100% { transform: translateY(-100%); }
         }
 
         @keyframes openBottomLid {
             0% { transform: translateY(0%); }
-            60% { transform: translateY(5%); }
+            55% { transform: translateY(5%); }
             100% { transform: translateY(100%); }
         }
 
-        /* ------------------------------- */
-        /*   MAIN PAGE STYLING             */
-        /* ------------------------------- */
+        /* --------------------------------------- */
+        /*              MAIN PAGE                   */
+        /* --------------------------------------- */
 
         .background-logo {
             position: fixed;
@@ -153,16 +153,25 @@
 
 <body>
 
-    <!-- Eye-opening loading gateway -->
+    <!-- Eye-opening gateway animation -->
     <div class="loader-overlay" id="loader">
         <div class="lid-top"></div>
-        <img src="6EEF8F0D-6F25-421B-8106-18AE2CFB42E8.png" class="loader-eye" alt="Oscar Gateway">
+
+        <img src="6EEF8F0D-6F25-421B-8106-18AE2CFB42E8.png"
+             class="loader-eye"
+             alt="Oscar Gateway">
+
         <div class="lid-bottom"></div>
     </div>
 
-    <!-- Page content -->
-    <img src="2DEF3F03-F001-4B3E-B41B-BB00507AA925.png" class="background-logo">
-    <img src="6EEF8F0D-6F25-421B-8106-18AE2CFB42E8.png" class="main-logo">
+    <!-- Background and site content -->
+    <img src="2DEF3F03-F001-4B3E-B41B-BB00507AA925.png"
+         class="background-logo"
+         alt="OLOS AI Background">
+
+    <img src="6EEF8F0D-6F25-421B-8106-18AE2CFB42E8.png"
+         class="main-logo"
+         alt="Oscar Logo">
 
     <h1>OSCAR</h1>
 
@@ -181,18 +190,21 @@
         You add the features you want, when you want them — from Baby Oscar (free core tools) to advanced health, wealth, automation, and business modules.</p>
 
         <p><strong>Follow the journey:</strong><br>
-        <a href="https://www.facebook.com/profile.php?id=61580439063803">
+        <a href="https://www.facebook.com/profile.php?id=61580439063803" target="_blank">
             Follow OLOS AI on Facebook
-        </a></p>
+        </a>
+        </p>
 
-        <p class="footer-quote">OSCAR remembers so you don’t have to.</p>
+        <p class="footer-quote">
+            OSCAR remembers so you don’t have to.
+        </p>
     </div>
 
     <script>
         window.addEventListener('load', function () {
             setTimeout(function () {
                 document.getElementById('loader').classList.add('hide');
-            }, 5000); // 5-second eye opening reveal
+            }, 7000); // <-- 7-second reveal timing
         });
     </script>
 
