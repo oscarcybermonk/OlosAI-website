@@ -39,15 +39,15 @@
             visibility: hidden;
         }
 
-        /* 150% BIGGER EYE */
+        /* FORCE BIG EYE SIZE */
         .loader-eye {
-            max-width: 360px; /* increased from 240px */
+            width: 480px;      /* <-- FORCE GIANT SIZE */
+            height: auto;
             position: relative;
             z-index: 10;
             animation: eyeGlow 7s ease-in-out infinite;
         }
 
-        /* Eye glow animation */
         @keyframes eyeGlow {
             0% { transform: scale(0.88); opacity: 0.6; filter: drop-shadow(0 0 5px #4DB6AC); }
             40% { transform: scale(1.15); opacity: 1; filter: drop-shadow(0 0 45px #4DB6AC); }
@@ -55,7 +55,6 @@
             100% { transform: scale(0.88); opacity: 0.6; filter: drop-shadow(0 0 5px #4DB6AC); }
         }
 
-        /* Eyelids for opening effect */
         .lid-top,
         .lid-bottom {
             position: absolute;
@@ -153,7 +152,6 @@
 
 <body>
 
-    <!-- Eye-opening gateway animation -->
     <div class="loader-overlay" id="loader">
         <div class="lid-top"></div>
 
@@ -164,14 +162,11 @@
         <div class="lid-bottom"></div>
     </div>
 
-    <!-- Background and site content -->
     <img src="2DEF3F03-F001-4B3E-B41B-BB00507AA925.png"
-         class="background-logo"
-         alt="OLOS AI Background">
+         class="background-logo">
 
     <img src="6EEF8F0D-6F25-421B-8106-18AE2CFB42E8.png"
-         class="main-logo"
-         alt="Oscar Logo">
+         class="main-logo">
 
     <h1>OSCAR</h1>
 
