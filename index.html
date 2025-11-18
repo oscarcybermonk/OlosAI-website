@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OLOS AI – Coming Soon</title>
+
     <style>
         body {
             margin: 0;
@@ -17,6 +18,10 @@
             overflow-x: hidden;
         }
 
+        /* ------------------------------- */
+        /*  LOADING GATEWAY — EYE OPENS    */
+        /* ------------------------------- */
+
         .loader-overlay {
             position: fixed;
             inset: 0;
@@ -25,7 +30,8 @@
             align-items: center;
             justify-content: center;
             z-index: 9999;
-            transition: opacity 0.8s ease, visibility 0.8s ease;
+            overflow: hidden;
+            transition: opacity 1s ease, visibility 1s ease;
         }
 
         .loader-overlay.hide {
@@ -33,33 +39,59 @@
             visibility: hidden;
         }
 
+        /* Bigger eye (gateway) */
         .loader-eye {
-            max-width: 160px;
-            animation: eyeGate 3s ease-in-out infinite;
+            max-width: 240px;  /* increased size */
+            position: relative;
+            z-index: 10;
+            animation: eyeGlow 5s ease-in-out infinite;
         }
 
-        @keyframes eyeGate {
-            0% {
-                transform: scale(0.9);
-                opacity: 0.6;
-                filter: drop-shadow(0 0 0px #4DB6AC);
-            }
-            40% {
-                transform: scale(1.02);
-                opacity: 1;
-                filter: drop-shadow(0 0 20px #4DB6AC);
-            }
-            70% {
-                transform: scale(0.96);
-                opacity: 0.9;
-                filter: drop-shadow(0 0 8px #4DB6AC);
-            }
-            100% {
-                transform: scale(0.9);
-                opacity: 0.6;
-                filter: drop-shadow(0 0 0px #4DB6AC);
-            }
+        /* Eye glow animation */
+        @keyframes eyeGlow {
+            0% { transform: scale(0.9); opacity: 0.6; filter: drop-shadow(0 0 4px #4DB6AC); }
+            40% { transform: scale(1.10); opacity: 1; filter: drop-shadow(0 0 35px #4DB6AC); }
+            70% { transform: scale(1.02); opacity: 0.9; filter: drop-shadow(0 0 18px #4DB6AC); }
+            100% { transform: scale(0.9); opacity: 0.6; filter: drop-shadow(0 0 4px #4DB6AC); }
         }
+
+        /* Eyelids for opening effect */
+        .lid-top,
+        .lid-bottom {
+            position: absolute;
+            width: 100%;
+            height: 50%;
+            left: 0;
+            background: #020304;
+            z-index: 20;
+            animation-timing-function: ease-in-out;
+        }
+
+        .lid-top {
+            top: 0;
+            animation: openTopLid 5s forwards;
+        }
+
+        .lid-bottom {
+            bottom: 0;
+            animation: openBottomLid 5s forwards;
+        }
+
+        @keyframes openTopLid {
+            0% { transform: translateY(0%); }
+            60% { transform: translateY(-5%); }
+            100% { transform: translateY(-100%); }
+        }
+
+        @keyframes openBottomLid {
+            0% { transform: translateY(0%); }
+            60% { transform: translateY(5%); }
+            100% { transform: translateY(100%); }
+        }
+
+        /* ------------------------------- */
+        /*   MAIN PAGE STYLING             */
+        /* ------------------------------- */
 
         .background-logo {
             position: fixed;
@@ -121,19 +153,16 @@
 
 <body>
 
+    <!-- Eye-opening loading gateway -->
     <div class="loader-overlay" id="loader">
-        <img src="6EEF8F0D-6F25-421B-8106-18AE2CFB42E8.png"
-             alt="Oscar Loading Gateway"
-             class="loader-eye">
+        <div class="lid-top"></div>
+        <img src="6EEF8F0D-6F25-421B-8106-18AE2CFB42E8.png" class="loader-eye" alt="Oscar Gateway">
+        <div class="lid-bottom"></div>
     </div>
 
-    <img src="2DEF3F03-F001-4B3E-B41B-BB00507AA925.png"
-         class="background-logo"
-         alt="OLOS AI Background">
-
-    <img src="6EEF8F0D-6F25-421B-8106-18AE2CFB42E8.png"
-         alt="Oscar Logo"
-         class="main-logo">
+    <!-- Page content -->
+    <img src="2DEF3F03-F001-4B3E-B41B-BB00507AA925.png" class="background-logo">
+    <img src="6EEF8F0D-6F25-421B-8106-18AE2CFB42E8.png" class="main-logo">
 
     <h1>OSCAR</h1>
 
@@ -152,23 +181,18 @@
         You add the features you want, when you want them — from Baby Oscar (free core tools) to advanced health, wealth, automation, and business modules.</p>
 
         <p><strong>Follow the journey:</strong><br>
-        <a href="https://www.facebook.com/profile.php?id=61580439063803" target="_blank">
+        <a href="https://www.facebook.com/profile.php?id=61580439063803">
             Follow OLOS AI on Facebook
-        </a>
-        </p>
+        </a></p>
 
-        <p class="footer-quote">
-            OSCAR remembers so you don’t have to.
-        </p>
+        <p class="footer-quote">OSCAR remembers so you don’t have to.</p>
     </div>
 
     <script>
-        // GATEWAY DURATION HERE →
         window.addEventListener('load', function () {
-            var loader = document.getElementById('loader');
             setTimeout(function () {
-                loader.classList.add('hide');
-            }, 3000); // 3-second reveal
+                document.getElementById('loader').classList.add('hide');
+            }, 5000); // 5-second eye opening reveal
         });
     </script>
 
