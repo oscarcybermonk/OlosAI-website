@@ -17,7 +17,6 @@
             overflow-x: hidden;
         }
 
-        /* Loading overlay – Oscar eye as the gateway */
         .loader-overlay {
             position: fixed;
             inset: 0;
@@ -62,7 +61,6 @@
             }
         }
 
-        /* Faint full-page background logo */
         .background-logo {
             position: fixed;
             top: 50%;
@@ -74,7 +72,6 @@
             z-index: -1;
         }
 
-        /* Oscar main logo */
         .main-logo {
             max-width: 130px;
             margin-bottom: 20px;
@@ -105,7 +102,6 @@
             text-decoration: none;
         }
 
-        /* Footer quote with soft pulse effect */
         .footer-quote {
             margin-top: 60px;
             font-size: 1.15rem;
@@ -125,19 +121,16 @@
 
 <body>
 
-    <!-- Loading gateway: Oscar eye -->
     <div class="loader-overlay" id="loader">
         <img src="6EEF8F0D-6F25-421B-8106-18AE2CFB42E8.png"
              alt="Oscar Loading Gateway"
              class="loader-eye">
     </div>
 
-    <!-- Faint background OLOS AI watermark -->
     <img src="2DEF3F03-F001-4B3E-B41B-BB00507AA925.png"
          class="background-logo"
          alt="OLOS AI Background">
 
-    <!-- Oscar Eye main logo -->
     <img src="6EEF8F0D-6F25-421B-8106-18AE2CFB42E8.png"
          alt="Oscar Logo"
          class="main-logo">
@@ -170,13 +163,12 @@
     </div>
 
     <script>
-        // Fade out the loading gateway once the page has loaded
+        // GATEWAY DURATION HERE →
         window.addEventListener('load', function () {
             var loader = document.getElementById('loader');
-            // Slight delay so the animation can be seen
             setTimeout(function () {
                 loader.classList.add('hide');
-            }, 1200);
+            }, 3000); // 3-second reveal
         });
     </script>
 
