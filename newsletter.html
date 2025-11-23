@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OLOS AI – Newsletter</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 40px 20px 60px;
+            background: #0E0E0E;
+            color: #FFFFFF;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .main-logo {
+            max-width: 90px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            margin-top: 5px;
+            font-size: 1.9rem;
+        }
+
+        .content {
+            max-width: 520px;
+            margin: 20px auto 0;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+        form {
+            margin-top: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+        }
+
+        input[type="email"] {
+            width: 100%;
+            max-width: 340px;
+            padding: 10px 12px;
+            border-radius: 999px;
+            border: 1px solid #4DB6AC;
+            background: #050707;
+            color: #FFFFFF;
+            font-size: 1rem;
+        }
+
+        input[type="email"]::placeholder {
+            color: #7A8A8B;
+        }
+
+        button {
+            padding: 10px 22px;
+            border-radius: 999px;
+            border: none;
+            background: #4DB6AC;
+            color: #041012;
+            font-size: 1rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.15s ease, box-shadow 0.2s ease;
+        }
+
+        button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 14px rgba(77, 182, 172, 0.25);
+        }
+
+        a {
+            color: #4DB6AC;
+            text-decoration: none;
+        }
+
+        .back-link {
+            margin-top: 30px;
+            display: inline-block;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="6EEF8F0D-6F25-421B-8106-18AE2CFB42E8.png"
+         class="main-logo"
+         alt="Oscar Logo">
+
+    <h1>OLOS AI Newsletter</h1>
+
+    <div class="content">
+        <p>Get progress updates as Oscar grows — from Baby Oscar’s first modules to full local-first AI systems, hardware builds, and new tools.</p>
+        <p>No spam, no selling your data. Just updates from the workshop.</p>
+
+        <!-- Replace the action URL with your real newsletter provider endpoint -->
+        <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+            <input type="email" name="email" placeholder="you@example.com" required>
+            <button type="submit">Join the list</button>
+        </form>
+
+        <a href="index.html" class="back-link">← Back to oscar home</a>
+    </div>
+
+</body>
+</html>
