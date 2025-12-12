@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OLOS AI – Newsletter</title>
+
     <style>
         body {
             margin: 0;
@@ -93,16 +94,49 @@
     <h1>OLOS AI Newsletter</h1>
 
     <div class="content">
-        <p>Get progress updates as Oscar grows — from Baby Oscar’s first modules to full local-first AI systems, hardware builds, and new tools.</p>
-        <p>No spam, no selling your data. Just updates from the workshop.</p>
+        <p>
+            Get progress updates as Oscar grows — from Baby Oscar’s first modules
+            to full local-first AI systems, hardware builds, and governance work.
+        </p>
 
-        <!-- Replace the action URL with your real newsletter provider endpoint -->
+        <p>
+            No spam. No tracking. No hype.
+            Just real updates from the workshop.
+        </p>
+
+        <!-- FORM: replace the action URL with your Formspree endpoint -->
         <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
-            <input type="email" name="email" placeholder="you@example.com" required>
+
+            <!-- Email field -->
+            <input
+                type="email"
+                name="email"
+                placeholder="you@example.com"
+                required
+                autocomplete="email"
+            >
+
+            <!-- Honeypot anti-spam field -->
+            <input type="text" name="_gotcha" style="display:none">
+
+            <!-- Custom subject for Fastmail filtering -->
+            <input
+                type="hidden"
+                name="_subject"
+                value="OLOS AI Newsletter Signup"
+            >
+
+            <!-- Optional redirect after success -->
+            <input
+                type="hidden"
+                name="_redirect"
+                value="https://olos.au/newsletter-success.html"
+            >
+
             <button type="submit">Join the list</button>
         </form>
 
-        <a href="index.html" class="back-link">← Back to oscar home</a>
+        <a href="index.html" class="back-link">← Back to OLOS AI</a>
     </div>
 
 </body>
