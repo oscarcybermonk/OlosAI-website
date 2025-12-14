@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OLOS AI – Newsletter</title>
 
   <style>
@@ -72,6 +72,18 @@
       box-shadow: 0 4px 14px rgba(77, 182, 172, 0.25);
     }
 
+    .note {
+      margin-top: 16px;
+      font-size: 0.95rem;
+      opacity: 0.85;
+    }
+
+    .mini {
+      font-size: 0.9rem;
+      opacity: 0.7;
+      margin-top: 10px;
+    }
+
     a {
       color: #4DB6AC;
       text-decoration: none;
@@ -83,33 +95,24 @@
       font-size: 0.95rem;
       opacity: 0.9;
     }
-
-    .note {
-      margin-top: 16px;
-      font-size: 0.95rem;
-      opacity: 0.85;
-    }
-
-    .mini {
-      font-size: 0.9rem;
-      opacity: 0.7;
-      margin-top: 8px;
-    }
   </style>
 </head>
 
 <body>
 
-  <img src="6EEF8F0D-6F25-421B-8106-18AE2CFB42E8.png"
-       class="main-logo"
-       alt="Oscar Logo" />
+  <!-- Oscar Eye -->
+  <img
+    src="6EEF8F0D-6F25-421B-8106-18AE2CFB42E8.png"
+    class="main-logo"
+    alt="Oscar Logo"
+  />
 
   <h1>OLOS AI Newsletter</h1>
 
   <div class="content">
     <p>
-      Updates as Oscar grows.  
-      Local-first AI, governance, hardware, and the things that actually matter.
+      Updates as Oscar grows — local-first AI, governance, hardware,
+      and the real work behind the scenes.
     </p>
 
     <p>
@@ -117,11 +120,13 @@
     </p>
 
     <div class="signup">
-      <input id="email"
-             type="email"
-             placeholder="you@example.com"
-             autocomplete="email"
-             required />
+      <input
+        id="email"
+        type="email"
+        placeholder="you@example.com"
+        autocomplete="email"
+        required
+      />
 
       <button type="button" onclick="subscribe()">
         Join the list
@@ -154,13 +159,13 @@
       const to = "oscar@olos.au";
       const subject = encodeURIComponent("Subscribe");
       const body = encodeURIComponent(
-        `Please add me to the OLOS AI newsletter.\n\nEmail: ${email}\n\n—`
+        "Please add me to the OLOS AI newsletter.\n\nEmail: " + email
       );
 
       note.style.display = "block";
       note.textContent = "Opening your email app to confirm subscription…";
 
-      window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+      window.location.href = "mailto:" + to + "?subject=" + subject + "&body=" + body;
     }
   </script>
 
