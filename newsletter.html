@@ -8,141 +8,79 @@
   <style>
     body {
       margin: 0;
-      padding: 40px 20px 60px;
-      background: #0E0E0E;
-      color: #FFFFFF;
+      padding: 40px 20px;
+      background: #0e0e0e;
+      color: #ffffff;
       font-family: Arial, sans-serif;
       text-align: center;
     }
 
-    .main-logo {
-      max-width: 90px;
-      margin-bottom: 15px;
-    }
-
-    h1 {
-      margin-top: 5px;
-      font-size: 1.9rem;
-    }
+    h1 { font-size: 1.9rem; margin-bottom: 10px; }
 
     .content {
       max-width: 520px;
-      margin: 20px auto 0;
+      margin: 0 auto;
       line-height: 1.6;
-      font-size: 1.05rem;
     }
 
-    .signup {
-      margin-top: 25px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      align-items: center;
-    }
-
-    input[type="email"] {
+    input {
       width: 100%;
       max-width: 340px;
-      padding: 10px 12px;
+      padding: 12px;
+      margin-top: 20px;
       border-radius: 999px;
-      border: 1px solid #4DB6AC;
+      border: 1px solid #4db6ac;
       background: #050707;
-      color: #FFFFFF;
+      color: #ffffff;
       font-size: 1rem;
-    }
-
-    input[type="email"]::placeholder {
-      color: #7A8A8B;
     }
 
     button {
-      padding: 10px 22px;
+      margin-top: 14px;
+      padding: 10px 24px;
       border-radius: 999px;
       border: none;
-      background: #4DB6AC;
+      background: #4db6ac;
       color: #041012;
       font-size: 1rem;
-      cursor: pointer;
       font-weight: 600;
-      transition: transform 0.15s ease, box-shadow 0.2s ease;
-    }
-
-    button:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 14px rgba(77, 182, 172, 0.25);
+      cursor: pointer;
     }
 
     .note {
       margin-top: 16px;
+      display: none;
       font-size: 0.95rem;
       opacity: 0.85;
     }
 
-    .mini {
-      font-size: 0.9rem;
-      opacity: 0.7;
-      margin-top: 10px;
-    }
-
-    a {
-      color: #4DB6AC;
-      text-decoration: none;
-    }
-
-    .back-link {
-      margin-top: 30px;
-      display: inline-block;
-      font-size: 0.95rem;
-      opacity: 0.9;
-    }
+    a { color: #4db6ac; text-decoration: none; }
   </style>
 </head>
 
 <body>
 
-  <!-- Oscar Eye -->
-  <img
-    src="6EEF8F0D-6F25-421B-8106-18AE2CFB42E8.png"
-    class="main-logo"
-    alt="Oscar Logo"
-  />
-
   <h1>OLOS AI Newsletter</h1>
 
   <div class="content">
     <p>
-      Updates as Oscar grows — local-first AI, governance, hardware,
-      and the real work behind the scenes.
+      Updates on Oscar, governance, and practical AI development.
+      No marketing. No tracking. No noise.
     </p>
 
-    <p>
-      No spam. No tracking. No marketing theatre.
+    <input id="email" type="email" placeholder="you@example.com" required>
+
+    <button onclick="subscribe()">Join the list</button>
+
+    <div id="note" class="note"></div>
+
+    <p style="margin-top:24px;">
+      Or email <b>oscar@olos.au</b> with subject <b>Subscribe</b>
     </p>
 
-    <div class="signup">
-      <input
-        id="email"
-        type="email"
-        placeholder="you@example.com"
-        autocomplete="email"
-        required
-      />
-
-      <button type="button" onclick="subscribe()">
-        Join the list
-      </button>
-    </div>
-
-    <div class="note" id="note" style="display:none;"></div>
-
-    <div class="mini">
-      This opens your email app to confirm.<br>
-      Or email <b>oscar@olos.au</b> with subject <b>Subscribe</b>.
-    </div>
-
-    <a href="index.html" class="back-link">
-      ← Back to Oscar home
-    </a>
+    <p style="margin-top:30px;">
+      <a href="index.html">← Back to home</a>
+    </p>
   </div>
 
   <script>
@@ -152,20 +90,20 @@
 
       if (!email) {
         note.style.display = "block";
-        note.textContent = "Please enter your email first.";
+        note.textContent = "Please enter an email address.";
         return;
       }
 
-      const to = "oscar@olos.au";
       const subject = encodeURIComponent("Subscribe");
       const body = encodeURIComponent(
         "Please add me to the OLOS AI newsletter.\n\nEmail: " + email
       );
 
-      note.style.display = "block";
-      note.textContent = "Opening your email app to confirm subscription…";
+      window.location.href =
+        "mailto:oscar@olos.au?subject=" + subject + "&body=" + body;
 
-      window.location.href = "mailto:" + to + "?subject=" + subject + "&body=" + body;
+      note.style.display = "block";
+      note.textContent = "Your email app should open now. Press Send to confirm.";
     }
   </script>
 
