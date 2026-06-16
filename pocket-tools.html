@@ -16,8 +16,13 @@
         }
 
         h1 {
-            margin-top: 5px;
+            margin: 5px 0 10px;
             font-size: 2rem;
+        }
+
+        .main-logo {
+            max-width: 90px;
+            margin-bottom: 15px;
         }
 
         .content {
@@ -72,15 +77,31 @@
             box-shadow: 0 4px 14px rgba(77, 182, 172, 0.25);
         }
 
+        a {
+            color: #4DB6AC;
+            text-decoration: none;
+        }
+
         .file-note {
             margin-top: 12px;
             font-size: 0.92rem;
             opacity: 0.78;
         }
+
+        .back-link {
+            margin-top: 30px;
+            display: inline-block;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
     </style>
 </head>
 
 <body>
+
+    <img src="6EEF8F0D-6F25-421B-8106-18AE2CFB42E8.png"
+         class="main-logo"
+         alt="Oscar Logo">
 
     <h1>OLOS AI Pocket Tools</h1>
 
@@ -88,7 +109,7 @@
         <div class="intro">
             <p>Pocket Tools are small local-first utilities from OLOS AI.</p>
             <p><strong>Always free.</strong></p>
-            <p>No account. No cloud. No telemetry. No signup required.</p>
+            <p>No account. No cloud. No tracking. No signup required.</p>
         </div>
 
         <section class="tool" aria-labelledby="desktop-id-widget">
@@ -104,6 +125,8 @@
             <p class="file-note">OlosDesktopIDWidgetSetup-v0.1.2.exe</p>
             <p class="file-note">Download size: about 12 MB. Windows may show a SmartScreen warning because this is a new unsigned installer.</p>
         </section>
+
+        <a href="index.html" class="back-link">&larr; Back to home</a>
     </div>
 
 </body>

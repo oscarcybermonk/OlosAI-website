@@ -20,12 +20,12 @@
         }
 
         h1 {
-            margin-top: 5px;
+            margin: 5px 0 10px;
             font-size: 1.9rem;
         }
 
         .content {
-            max-width: 520px;
+            max-width: 620px;
             margin: 20px auto 0;
             line-height: 1.6;
             font-size: 1.05rem;
@@ -47,6 +47,7 @@
             color: #FFFFFF;
             background: transparent;
             font-size: 1rem;
+            font-weight: bold;
             text-decoration: none;
             transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
             min-width: 210px;
@@ -60,6 +61,17 @@
         .btn:hover {
             transform: translateY(-1px);
             box-shadow: 0 4px 14px rgba(77, 182, 172, 0.25);
+        }
+
+        .btn-disabled {
+            color: rgba(255, 255, 255, 0.65);
+            border-color: rgba(77, 182, 172, 0.45);
+            cursor: default;
+        }
+
+        .btn-disabled:hover {
+            transform: none;
+            box-shadow: none;
         }
 
         a {
@@ -91,16 +103,15 @@
     <h1>Support OLOS AI</h1>
 
     <div class="content">
-        <p>If you’d like to help Oscar grow — from free tools like Baby Oscar to full local-first AI systems — you can support the project here.</p>
+        <p>If you’d like to help Oscar grow — from free tools like Oscar-USB to full local-first AI systems — you can support the project here.</p>
 
         <div class="button-column">
-            <!-- Replace these href URLs with your real links -->
-            <a class="btn btn-primary" href="https://ko-fi.com/YOURNAME" target="_blank">Buy me a Ko-fi</a>
-            <a class="btn" href="https://www.youtube.com/@YOURCHANNEL" target="_blank">Visit the YouTube channel</a>
-            <a class="btn" href="https://www.instagram.com/YOURHANDLE" target="_blank">Follow on Instagram</a>
+            <a class="btn btn-primary" href="https://ko-fi.com/tony554219" target="_blank">Buy me a Ko-fi</a>
+            <span class="btn btn-disabled" aria-disabled="true">YouTube coming soon</span>
+            <a class="btn" href="https://www.instagram.com/olos_ai/" target="_blank">Follow on Instagram</a>
         </div>
 
-        <a href="index.html" class="back-link">← Back to oscar home</a>
+        <a href="index.html" class="back-link">&larr; Back to home</a>
     </div>
 
 </body>

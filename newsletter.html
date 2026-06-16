@@ -3,24 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OLOS AI – Newsletter</title>
+  <title>OLOS AI - Weekly Update</title>
 
   <style>
     body {
       margin: 0;
-      padding: 40px 20px;
+      padding: 40px 20px 60px;
       background: #0e0e0e;
       color: #ffffff;
       font-family: Arial, sans-serif;
       text-align: center;
     }
 
-    h1 { font-size: 1.9rem; margin-bottom: 10px; }
+    .main-logo {
+      max-width: 90px;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      margin: 5px 0 10px;
+      font-size: 1.9rem;
+    }
 
     .content {
-      max-width: 520px;
-      margin: 0 auto;
+      max-width: 620px;
+      margin: 20px auto 0;
       line-height: 1.6;
+      font-size: 1.05rem;
     }
 
     input {
@@ -35,16 +44,24 @@
       font-size: 1rem;
     }
 
-    button {
+    .btn {
+      display: inline-block;
       margin-top: 14px;
       padding: 10px 24px;
       border-radius: 999px;
-      border: none;
+      border: 1px solid #4db6ac;
       background: #4db6ac;
       color: #041012;
       font-size: 1rem;
-      font-weight: 600;
+      font-weight: bold;
       cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.15s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(77, 182, 172, 0.25);
     }
 
     .note {
@@ -54,33 +71,49 @@
       opacity: 0.85;
     }
 
-    a { color: #4db6ac; text-decoration: none; }
+    a {
+      color: #4db6ac;
+      text-decoration: none;
+    }
+
+    .back-link {
+      margin-top: 30px;
+      display: inline-block;
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
   </style>
 </head>
 
 <body>
 
-  <h1>OLOS AI Newsletter</h1>
+  <img src="6EEF8F0D-6F25-421B-8106-18AE2CFB42E8.png"
+       class="main-logo"
+       alt="Oscar Logo">
+
+  <h1>OLOS AI Weekly Update</h1>
 
   <div class="content">
     <p>
-      Updates on Oscar, governance, and practical AI development.
-      No marketing. No tracking. No noise.
+      A simple weekly update on Oscar, governance, Pocket Tools, and practical AI development.
+      Privacy-first, low-noise, and sent only when there is something useful to share.
+    </p>
+
+    <p>
+      This form does not store your email address on the website. Entering your address opens your email app with a prepared request to join the list. Press Send there to confirm.
     </p>
 
     <input id="email" type="email" placeholder="you@example.com" required>
 
-    <button onclick="subscribe()">Join the list</button>
+    <button class="btn" onclick="subscribe()">Request to join</button>
 
     <div id="note" class="note"></div>
 
     <p style="margin-top:24px;">
-      Or email <b>oscar@olos.au</b> with subject <b>Subscribe</b>
+      Or email <b>oscar@olos.au</b> with subject <b>Subscribe</b>.
     </p>
 
-    <p style="margin-top:30px;">
-      <a href="index.html">← Back to home</a>
-    </p>
+    <a href="index.html" class="back-link">&larr; Back to home</a>
   </div>
 
   <script>
@@ -96,7 +129,7 @@
 
       const subject = encodeURIComponent("Subscribe");
       const body = encodeURIComponent(
-        "Please add me to the OLOS AI newsletter.\n\nEmail: " + email
+        "Please add me to the OLOS AI weekly update.\n\nEmail: " + email
       );
 
       window.location.href =
